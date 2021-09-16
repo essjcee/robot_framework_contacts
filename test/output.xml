@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.7 on win32)" generated="20210916 18:44:36.729" rpa="false" schemaversion="2">
+<suite id="s1" name="Custom Library Example" source="C:\pythoncourse\robotdemo2\test\custom_library_example.robot">
+<test id="s1-t1" name="Empty Contacts List">
+<kw name="Clear Contacts List" library="contact_lib" type="SETUP">
+<arg>${APPLICATION_PATH}</arg>
+<doc>Clear the list of contacts.
+Arguments:
+- ''application_path:''     The relative (or absolute) path where the Contact script resides</doc>
+<status status="PASS" starttime="20210916 18:44:36.787" endtime="20210916 18:44:36.951"/>
+</kw>
+<kw name="Retrieve Contacts List" library="contact_lib">
+<var>${output}</var>
+<arg>${APPLICATION_PATH}</arg>
+<doc>Retrieve the list of contacts.
+Arguments:
+- ''application_path:''     The relative (or absolute) path where the Contact script resides</doc>
+<msg timestamp="20210916 18:44:37.104" level="INFO">${output} = []</msg>
+<status status="PASS" starttime="20210916 18:44:36.952" endtime="20210916 18:44:37.104"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${output}</arg>
+<arg>[]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20210916 18:44:37.123" endtime="20210916 18:44:37.125"/>
+</kw>
+<doc>Verify the output of an empty contacts list</doc>
+<status status="PASS" starttime="20210916 18:44:36.786" endtime="20210916 18:44:37.126"/>
+</test>
+<test id="s1-t2" name="Add Contact">
+<kw name="Clear Contacts List" library="contact_lib" type="SETUP">
+<arg>${APPLICATION_PATH}</arg>
+<doc>Clear the list of contacts.
+Arguments:
+- ''application_path:''     The relative (or absolute) path where the Contact script resides</doc>
+<status status="PASS" starttime="20210916 18:44:37.129" endtime="20210916 18:44:37.322"/>
+</kw>
+<kw name="Add Contact" library="contact_lib">
+<arg>${APPLICATION_PATH}</arg>
+<arg>first_name=Aine</arg>
+<arg>last_name=Sloan</arg>
+<doc>Add an contact.
+Arguments:
+- application_path: The relative (or absolute) path where the Contact script resides
+- first_name:               The first name of the contact to be added.
+- last_name:                The last name of the contact to be added.
+Examples:
+Add Contact ../contact.py Phil      Jones</doc>
+<status status="PASS" starttime="20210916 18:44:37.323" endtime="20210916 18:44:37.449"/>
+</kw>
+<kw name="Retrieve Contacts List" library="contact_lib">
+<var>${output}</var>
+<arg>${APPLICATION_PATH}</arg>
+<doc>Retrieve the list of contacts.
+Arguments:
+- ''application_path:''     The relative (or absolute) path where the Contact script resides</doc>
+<msg timestamp="20210916 18:44:37.532" level="INFO">${output} = ['Aine Sloan']</msg>
+<status status="PASS" starttime="20210916 18:44:37.450" endtime="20210916 18:44:37.532"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${output}</arg>
+<arg>['Aine Sloan']</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20210916 18:44:37.533" endtime="20210916 18:44:37.533"/>
+</kw>
+<kw name="Clear Contacts List" library="contact_lib" type="TEARDOWN">
+<arg>${APPLICATION_PATH}</arg>
+<doc>Clear the list of contacts.
+Arguments:
+- ''application_path:''     The relative (or absolute) path where the Contact script resides</doc>
+<status status="PASS" starttime="20210916 18:44:37.534" endtime="20210916 18:44:37.613"/>
+</kw>
+<doc>Verify adding a contact</doc>
+<status status="PASS" starttime="20210916 18:44:37.128" endtime="20210916 18:44:37.613"/>
+</test>
+<doc>Test the contact Python script</doc>
+<status status="PASS" starttime="20210916 18:44:36.731" endtime="20210916 18:44:37.615"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Custom Library Example">Custom Library Example</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
